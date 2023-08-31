@@ -1,15 +1,14 @@
 create table if not exists MusicalGenres(
 	Id Serial primary key,
-	Title varchar(40) not null
+	Title varchar(40) unique not null
 );
 
 create table if not exists Artists(
 	Id Serial primary key,
-	GenresId int not null references MusicalGenres(Id),
-	Name varchar(40) not null
+	Name varchar(40) unique not null
 );
 
-create table if not exists GenrseArtist(
+create table if not exists GenresArtist(
 	Id serial primary key,
 	GenreId int not null references MusicalGenres(Id),
 	ArtistId int not null references Artists(Id)
@@ -17,16 +16,15 @@ create table if not exists GenrseArtist(
 
 create table if not exists Albums(
  	Id serial primary key,
- 	ArtistId int not null references Artists(Id),
- 	Title varchar(40) not null,
- 	YearRelease int not null
+ 	Title varchar(40) unique not null,
+ 	YearRelease int not null check(YearRelease > 1950)
 );
 
 create table if not exists Tracks(
 	Id serial primary key,
 	AlbumId int not null references Albums(Id),
-	Title varchar(40) not null,
-	Duration varchar(10) not null
+	Title varchar(40) unique not null, 
+	Duration int not null check(Duration > 30)
 ); 
 
 create table if not exists AlbumsArtists(
@@ -37,8 +35,8 @@ create table if not exists AlbumsArtists(
 
 create table if not exists Playlists(
 	Id serial primary key,
-	Title text not null,
-	YearRelease int not null
+	Title text unique not null,
+	YearRelease int not null check(YearRelease > 1950)
 );
 
 create table if not exists PlaylistTrack(
