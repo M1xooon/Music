@@ -42,5 +42,5 @@ create table if not exists Playlists(
 create table if not exists PlaylistTrack(
 	PlaylistId int not null references Playlists(Id),
 	TrackId int not null references Tracks(Id),
-	constraint pk primary key (PlaylistId,TrackId)
+	constraint pk primary key(PlaylistId,TrackId) 
 );
