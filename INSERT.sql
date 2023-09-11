@@ -58,6 +58,15 @@ values('Скучаю, Но Работаю', 2023);
 insert into albums(Title, YearRelease)
 values('Луна сегодня красивая, правда?', 2023);
 
+insert into albums(Title, YearRelease)
+values('GHETTO GARDEN', 2020);
+
+insert into albumsartists(albumsid, artistid) 
+values (4, 1);
+
+insert into albumsartists(albumsid, artistid) 
+values (4, 5);
+
 insert into albumsartists(albumsid, artistid) 
 values (1, 1);
 
@@ -72,6 +81,12 @@ values (2, 5);
 
 insert into albumsartists(albumsid, artistid) 
 values (3, 4);
+
+insert into tracks(albumid,title,duration)
+values (4, 'Джинсы', 197);
+
+insert into tracks(albumid,title,duration)
+values (4, 'Лилия', 107);
 
 insert into tracks(albumid,title,duration)
 values (1, 'внутри', 213);
